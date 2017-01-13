@@ -1,5 +1,6 @@
-const DEG_45 = Math.PI / 4,
-    DEG_30 = Math.PI / 6;
+const DEG_30 = Math.PI / 6,
+    DEG_45 = Math.PI / 4,
+    DEG_60 = Math.PI / 3;
 
 function createCube() {
     let renderer = common.createRenderer({
@@ -8,7 +9,9 @@ function createCube() {
         scene = common.createScene(),
         camera = common.createCamera([0, 0, 3]),
         light = common.createLight([2, 1, 2]),
-        cubeGeometry = common.createGeometry('cube', [0.5, 0.5, 0.5]),
+        //light = common.createAmbientLight(undefined, .7),
+        //cubeGeometry = common.createGeometry('cube', [0.5, 0.5, 0.5]),
+        cubeGeometry = common.createGeometry('sphere', [0.25, 32, 32]),
         material = common.createMaterial('phong', {
             color: 0xefefef
         }),
@@ -17,21 +20,20 @@ function createCube() {
     common.addAssetsToScreen(scene, camera);
     common.addAssetsToScreen(scene, light);
     common.addAssetsToScreen(scene, mesh);
-    common.textureLoader('../images/texture1.jpg', texture => {
+    common.textureLoader('../images/earth_surface.jpg', texture => {
         material.map = texture;
         material.needsUpdate = true;
         common.render(renderer, scene, camera);
     });
     common.rotate(mesh, {
-        x: DEG_45,
+        x: DEG_60,
         y: -DEG_30
     })
     common.render(renderer, scene, camera);
 
     function run(timestamp) {
-        console.log(timestamp)
         common.rotate(mesh, {
-            x: mesh.rotation.x - 0.005
+            y: mesh.rotation.y - 0.005
         });
         common.render(renderer, scene, camera);
         window.requestAnimationFrame(run)

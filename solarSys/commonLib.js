@@ -37,7 +37,8 @@ common.createMesh = function(geometry, material) {
 common.createGeometry = function(type, dimentionArray) {
     let map = {
             cube: 'CubeGeometry',
-            plane: 'PlaceGeometry'
+            plane: 'PlaceGeometry',
+            sphere: 'SphereGeometry'
         },
         geometry = new THREE[map[type]](...dimentionArray);
     return geometry;
@@ -56,6 +57,11 @@ common.createLight = function(position=[], color, intensity) {
 	let light = new THREE.DirectionalLight(color, intensity)
 	light.position.set(...position);
 	return light;
+}
+
+common.createAmbientLight = function(color, intensity){
+	let light = new THREE.AmbientLight(color, intensity);
+	return light
 }
 
 common.addAssetsToScreen = function(scene, obj) {
