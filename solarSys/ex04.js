@@ -4,8 +4,8 @@ const DEG_30 = Math.PI / 6,
     DEG_90 = Math.PI / 2;
 
 function createEarth(scene, renderer) {
-    let camera = common.createCamera([0, 6, 20]),
-        light = common.createLight([9, 0, 9], undefined, 2),
+    let camera = common.createCamera([0, 6, 25], 90),
+        //light = common.createLight([9, 0, 9], undefined, 2),
         ambientLight = common.createAmbientLight(undefined, .7),
         //cubeGeometry = common.createGeometry('cube', [0.5, 0.5, 0.5]),
         cubeGeometry = common.createGeometry('sphere', [1, 32, 32]),
@@ -13,7 +13,8 @@ function createEarth(scene, renderer) {
             color: 0xefefef
         }),
         mesh = common.createMesh(cubeGeometry, material),
-        group = new THREE.Object3D();
+        group = new THREE.Object3D(),
+        groupParent = new THREE.Object3D;
 
     common.textureLoader('../images/earth_surface.jpg', earth_surface => {
         common.textureLoader('../images/earth_normal.jpg', earth_normal => {
@@ -63,11 +64,12 @@ function createEarth(scene, renderer) {
     });
 
     common.addAssetsToScreen(scene, camera);
-    common.addAssetsToScreen(group, light);
+    //common.addAssetsToScreen(group, light);
     common.addAssetsToScreen(group, ambientLight);
     common.addAssetsToScreen(group, mesh);
     common.addAssetsToScreen(group, cloudMesh)
-    common.addAssetsToScreen(scene, group);
+    groupParent.add(group)
+    common.addAssetsToScreen(scene, groupParent);
 
 
 
@@ -101,6 +103,9 @@ function createEarth(scene, renderer) {
         });
         common.rotate(moonGroup, {
             y: moonGroup.rotation.y + 0.005 //WHY if this is the moonmesh the it is rotation aroud its own axis and not revolution around the earth??
+        });
+        common.rotate(groupParent, {
+            y: groupParent.rotation.y + 0.005 //WHY if this is the moonmesh the it is rotation aroud its own axis and not revolution around the earth??
         });
 
         common.render(renderer, scene, camera);
@@ -150,11 +155,26 @@ function createEarth(scene, renderer) {
     }
 
     var line = new THREE.Line( lineGeometry, lineMaterial );
-    scene.add( line );
+    group.add( line );
+
+
+    group.position.set(7, 0, 0)
+    let sunGroup =  new THREE.Object3D
+    sunGroup.add(new THREE.Mesh(new THREE.SphereGeometry(0.5, 32, 32), new THREE.MeshPhongMaterial()))
+    sunGroup.add(new THREE.PointLight());
+    scene.add(sunGroup);
 
 
 
+    var earthOrbit = new THREE.Geometry()
+    for(let i=0; i<360;i++){
+        let x = Math.cos((i*Math.PI)/180) * 7
+        let z = Math.sin((i*Math.PI)/180) * 7
+        earthOrbit.vertices.push(new THREE.Vector3(x, 0, z))    
+    }
 
+    var lineOrbit = new THREE.Line( earthOrbit, lineMaterial );
+    scene.add( lineOrbit );
 
 
     run();
@@ -163,12 +183,12 @@ function createEarth(scene, renderer) {
 
 
 function createCube() {
-    let renderer = common.createRenderer({
+    renderer = common.createRenderer({
             container: "container"
-        }),
+        });
         scene = common.createScene();
     createEarth(scene, renderer);
 }
 
-
+var renderer, scene;
 createCube()
