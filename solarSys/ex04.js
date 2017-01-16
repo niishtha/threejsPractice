@@ -4,11 +4,11 @@ const DEG_30 = Math.PI / 6,
     DEG_90 = Math.PI / 2;
 
 function createEarth(scene, renderer) {
-    let camera = common.createCamera([0, 0, 3]),
-        light = common.createLight([2, 0, 2], undefined, 2),
-        //light = common.createAmbientLight(undefined, .7),
+    let camera = common.createCamera([0, 6, 20]),
+        light = common.createLight([9, 0, 9], undefined, 2),
+        ambientLight = common.createAmbientLight(undefined, .7),
         //cubeGeometry = common.createGeometry('cube', [0.5, 0.5, 0.5]),
-        cubeGeometry = common.createGeometry('sphere', [0.25, 32, 32]),
+        cubeGeometry = common.createGeometry('sphere', [1, 32, 32]),
         material = common.createMaterial('phong', {
             color: 0xefefef
         }),
@@ -50,7 +50,7 @@ function createEarth(scene, renderer) {
             //map: cloudsMap,
             transparent: true
         }),
-        cloudMesh = common.createMesh(common.createGeometry('sphere', [0.27, 32, 32]), cloudMaterial);
+        cloudMesh = common.createMesh(common.createGeometry('sphere', [1.4, 32, 32]), cloudMaterial);
 
     common.rotate(cloudMesh, {
         x: DEG_30,
@@ -64,6 +64,7 @@ function createEarth(scene, renderer) {
 
     common.addAssetsToScreen(scene, camera);
     common.addAssetsToScreen(group, light);
+    common.addAssetsToScreen(group, ambientLight);
     common.addAssetsToScreen(group, mesh);
     common.addAssetsToScreen(group, cloudMesh)
     common.addAssetsToScreen(scene, group);
@@ -76,8 +77,8 @@ function createEarth(scene, renderer) {
     let moonMaterial = common.createMaterial('phong',{
             color: 0xffffff
         }),
-        moonMesh = common.createMesh(common.createGeometry('sphere', [0.1, 32, 32]), moonMaterial);
-    moonMesh.position.set(0.8, 0, 0.8);
+        moonMesh = common.createMesh(common.createGeometry('sphere', [0.5, 32, 32]), moonMaterial);
+    moonMesh.position.set(5, 0, 0);
     common.rotate(moonMesh,{
         x:DEG_90
     })
@@ -143,9 +144,9 @@ function createEarth(scene, renderer) {
 
     var lineGeometry = new THREE.Geometry();
     for(let i=0; i<360;i++){
-        let x = Math.cos((i*Math.PI)/180)
-        let y = Math.sin((i*Math.PI)/180)
-        lineGeometry.vertices.push(new THREE.Vector3(x, y, 0))    
+        let x = Math.cos((i*Math.PI)/180) * 5
+        let z = Math.sin((i*Math.PI)/180) * 5
+        lineGeometry.vertices.push(new THREE.Vector3(x, 0, z))    
     }
 
     var line = new THREE.Line( lineGeometry, lineMaterial );
