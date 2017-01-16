@@ -8,7 +8,8 @@ common.createRenderer = function(params) {
     let containerElement = document.getElementById(params.container),
         canvas = params.canvas,
         renderer = new THREE.WebGLRenderer({
-            canvas
+            canvas,
+            antialias:true
         });
     if (!canvas) {
     	containerElement.appendChild(renderer.domElement)
@@ -47,7 +48,8 @@ common.createGeometry = function(type, dimentionArray) {
 common.createMaterial = function(type, params) {
     let map = {
             basic: 'MeshBasicMaterial',
-            phong: 'MeshPhongMaterial'
+            phong: 'MeshPhongMaterial',
+            lambert: 'MeshLambertMaterial'
         },
         material = new THREE[map[type]](params);
     return material;
