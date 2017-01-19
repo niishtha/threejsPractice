@@ -9,7 +9,7 @@ var animating = false
 
 
 function createEarth(scene, renderer) {
-    let camera = common.createCamera([0, 10, 45], 90),
+    let camera = common.createCamera([0, 10, 60], 90),
         //light = common.createLight([9, 0, 9], undefined, 2),
         //ambientLight = common.createAmbientLight(undefined, .2),
         //cubeGeometry = common.createGeometry('cube', [0.5, 0.5, 0.5]),
@@ -45,7 +45,7 @@ function createEarth(scene, renderer) {
             //map: cloudsMap,
             transparent: true
         }),
-        cloudMesh = common.createMesh(common.createGeometry('sphere', [constUnit*1.1, 32, 32]), cloudMaterial);
+        cloudMesh = common.createMesh(common.createGeometry('sphere', [constUnit * 1.1, 32, 32]), cloudMaterial);
 
     common.rotate(cloudMesh, {
         x: DEG_30,
@@ -73,7 +73,7 @@ function createEarth(scene, renderer) {
     let moonMaterial = common.createMaterial('phong', {
             color: 0xffffff
         }),
-        moonMesh = common.createMesh(common.createGeometry('sphere', [constUnit*0.3, 32, 32]), moonMaterial);
+        moonMesh = common.createMesh(common.createGeometry('sphere', [constUnit * 0.3, 32, 32]), moonMaterial);
     common.rotate(moonMesh, {
         x: DEG_90
     })
@@ -84,8 +84,8 @@ function createEarth(scene, renderer) {
 
 
     let moonGroup = new THREE.Object3D();
-        moonGroup.castShadow = true;
-        moonGroup.receiveShadow = true;
+    moonGroup.castShadow = true;
+    moonGroup.receiveShadow = true;
     var lineMaterial = new THREE.LineBasicMaterial({
         color: 0xffffff,
         lineWidth: 4
@@ -93,13 +93,13 @@ function createEarth(scene, renderer) {
 
     var moonOrbit = new THREE.Geometry();
     for (let i = 0; i < 361; i++) {
-        let x = Math.cos((i * Math.PI) / 180) * constUnit*3
-        let z = Math.sin((i * Math.PI) / 180) * constUnit*3
+        let x = Math.cos((i * Math.PI) / 180) * constUnit * 3
+        let z = Math.sin((i * Math.PI) / 180) * constUnit * 3
         moonOrbit.vertices.push(new THREE.Vector3(x, 0, z))
     }
 
     var line = new THREE.Line(moonOrbit, lineMaterial);
-    moonMesh.position.set(constUnit*3, 0, 0);
+    moonMesh.position.set(constUnit * 3, 0, 0);
     group.add(line);
     // common.rotate(group,{
     //     z: -DEG_30
@@ -113,16 +113,28 @@ function createEarth(scene, renderer) {
     function run(timestamp) {
         if (animating) {
             common.rotate(mesh, {
-                y: mesh.rotation.y + 5*speedUnit
+                y: mesh.rotation.y + 5 * speedUnit
             });
             common.rotate(cloudMesh, {
-                y: cloudMesh.rotation.y + 1*speedUnit
+                y: cloudMesh.rotation.y + 1 * speedUnit
             });
             common.rotate(moonGroup, {
-                y: moonGroup.rotation.y + 5*speedUnit/28 //WHY if this is the moonmesh the it is rotation aroud its own axis and not revolution around the earth??
+                y: moonGroup.rotation.y + 5 * speedUnit / 28
             });
             common.rotate(groupParent, {
-                y: groupParent.rotation.y + 5*speedUnit/100 //WHY if this is the moonmesh the it is rotation aroud its own axis and not revolution around the earth??
+                y: groupParent.rotation.y + 5 * speedUnit / 100
+            });
+            common.rotate(saturnObject, {
+                y: saturnObject.rotation.y + 5 * speedUnit / 100
+            });
+            common.rotate(marsObject, {
+                y: marsObject.rotation.y + 5 * speedUnit / 100
+            });
+            common.rotate(saturnMesh, {
+                y: saturnMesh.rotation.y + 5 * speedUnit
+            });
+            common.rotate(marsMesh, {
+                y: marsMesh.rotation.y + 5 * speedUnit
             });
             if (!start) {
                 start = timestamp;
@@ -133,6 +145,7 @@ function createEarth(scene, renderer) {
             //         y: sunMesh.rotation.y + 0.5
             //     })
             // }
+            controls.update()
 
             common.render(renderer, scene, camera);
         }
@@ -176,21 +189,22 @@ function createEarth(scene, renderer) {
 
 
 
-    group.position.set(constUnit*12, 0, 0)
+    group.position.set(constUnit * 12, 0, 0)
 
 
     let sunGroup = new THREE.Object3D,
         sunMaterial = new THREE.MeshPhongMaterial({
             color: 0xffff00,
             emissive: 0xffffff,
-            emissiveMap: loader.load('../images/sun.jpg')
+            emissiveMap: loader.load('../images/sun1.jpg')
         }),
-        sunMesh = new THREE.Mesh(new THREE.SphereGeometry(constUnit*3, 32, 32), sunMaterial),
+        sunMesh = new THREE.Mesh(new THREE.SphereGeometry(constUnit * 3, 32, 32), sunMaterial),
         sunLight = new THREE.PointLight(0xffffff, 1.2, 100000);
     // common.textureLoader('../images/sun.jpg',sunTexture=>{
     //     sunMaterial.map = sunTexture;
     //     sunMaterial.needsUpdate = true;
     // })
+    
     sunGroup.add(sunMesh)
     sunGroup.add(sunLight);
     scene.add(sunGroup);
@@ -199,8 +213,8 @@ function createEarth(scene, renderer) {
 
     var earthOrbit = new THREE.Geometry()
     for (let i = 0; i < 361; i++) {
-        let x = Math.cos((i * Math.PI) / 180) * constUnit*12
-        let z = Math.sin((i * Math.PI) / 180) * constUnit*12
+        let x = Math.cos((i * Math.PI) / 180) * constUnit * 12
+        let z = Math.sin((i * Math.PI) / 180) * constUnit * 12
         earthOrbit.vertices.push(new THREE.Vector3(x, 0, z))
     }
 
@@ -209,6 +223,62 @@ function createEarth(scene, renderer) {
 
 
     run();
+
+
+
+
+
+
+
+    //mars
+    var marsObject = new THREE.Object3D, 
+        marsMesh = new THREE.Mesh(new THREE.SphereGeometry(constUnit*0.7, 32, 32), new THREE.MeshPhongMaterial({
+            map: loader.load('../images/mars.jpg')
+        })),
+        planetOrbit = new THREE.Geometry();
+    for (let i = 0; i < 361; i++) {
+        let x = Math.cos((i * Math.PI) / 180) * constUnit * 17
+        let z = Math.sin((i * Math.PI) / 180) * constUnit * 17
+        planetOrbit.vertices.push(new THREE.Vector3(x, 0, z))
+    }
+    marsMesh.position.set(constUnit*17, 0, 0)
+    marsObject.add(new THREE.Line(planetOrbit, lineMaterial))
+    marsObject.add(marsMesh);
+    scene.add(marsObject)
+
+
+
+
+
+
+    var saturnObject = new THREE.Object3D, 
+        saturnMesh = new THREE.Mesh(new THREE.SphereGeometry(constUnit*1.3, 32, 32), new THREE.MeshPhongMaterial({
+            map: loader.load('../images/saturn.png')
+        })),
+        planetOrbit = new THREE.Geometry();
+    for (let i = 0; i < 361; i++) {
+        let x = Math.cos((i * Math.PI) / 180) * constUnit * 21
+        let z = Math.sin((i * Math.PI) / 180) * constUnit * 21
+        planetOrbit.vertices.push(new THREE.Vector3(x, 0, z))
+    }
+    saturnMesh.position.set(constUnit*21, 0, 0)
+    saturnObject.add(new THREE.Line(planetOrbit, lineMaterial))
+    saturnObject.add(saturnMesh);
+    scene.add(saturnObject)
+
+
+
+    let controls = new THREE.OrbitControls( camera , renderer.domElement);
+    controls.addEventListener( 'change', function() {
+        common.render(renderer, scene, camera)
+    });
+    controls.enableZoom = false;
+    controls.enablePan = false;
+    // controls.autoRotate = true;
+    // controls.autoRotateSpeed = -2.0;
+
+
+
     common.render(renderer, scene, camera);
 }
 
