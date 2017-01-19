@@ -81,12 +81,14 @@
         padding: 5px 15px;
         display: inline-block;
         color: #e81c28;
+        cursor: pointer;
     }
     .button-red{
     	border-radius: 25px;
     	padding: 10px 20px;
     	background-color: #e81c28;
-    	color: #ffffff
+    	color: #ffffff;
+    	cursor: pointer;
 
     }
     
@@ -124,6 +126,10 @@
     }
     .pl-40{
     	padding-left: 40px;
+    	padding-bottom: 5px;
+    }
+    .pl-20{
+    	padding-left: 20px;
     }
     .ribbon-wrap{
     	margin: 0 auto 30px;
@@ -157,6 +163,16 @@
     	background-color: #efefef;
     	min-height: 160px;
     }
+    @media only screen and (max-width: 767px) {
+    	.hide-desktop{
+    		display: none!important;
+    	}
+    }
+    @media only screen and (min-width: 768px) {
+    	.hide-mobile{
+    		display: none!important;
+    	}
+    }
     </style>
 </head>
 
@@ -165,13 +181,33 @@
         <tbody>
             <tr>
                 <td>
-                    <table class="first-fold full-width">
+                    <table class="first-fold full-width hide-desktop">
                         <tbody>
                             <tr>
                                 <td>
                                     <img src="assets/heroimage_text.jpg" />
                                 </td>
                             </tr>
+                        </tbody>
+                    </table>
+                    <table class="first-fold full-width hide-mobile">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <img src="assets/hero_image.jpg" />
+                                </td>
+                            </tr>
+                            <tr>
+                            	<td style="padding: 10px 20px;font-size: 20px;">ALL NEW</td>
+                            </tr>
+                            <tr>
+                            	<td style="padding: 10px 20px;font-size: 24px;font-weight: bold;">FUTURE-SPACE</td>
+                            </tr>
+                            <tr>
+								<td class="pt-25 pl-20">
+									<span class="button-red">TAKE A DEMO</span>
+								</td>
+							</tr>
                         </tbody>
                     </table>
                     <table class="second-fold full-width">
@@ -253,7 +289,7 @@
 							<td rowspan="6" style="width:40%;padding: 10px 25px 10px 10px;">
 								<img src="assets/icon1.png" />
 							</td>
-							<td style="width: 60%;padding: 30px 0px 0px 40px;" class="primary-fnt">Better user interaction with</td>
+							<td style="width: 60%;padding: 30px 0px 0px 40px; font-size: 20px" class="primary-fnt"><span style="font-weight: bold">Better user interaction</span>&nbsp;with</td>
 						</tr>
 						<tr>
 							<td class="secondary-small pl-40">Coach marks</td>
@@ -275,7 +311,7 @@
 							<td rowspan="6" style="width:40%;padding: 10px 25px 10px 10px;">
 								<img src="assets/icon1.png" />
 							</td>
-							<td style="width: 60%;padding: 30px 0px 0px 40px;" class="primary-fnt">Better Technology with</td>
+							<td style="width: 60%;padding: 30px 0px 0px 40px; font-size: 20px" class="primary-fnt"><span style="font-weight: bold">Better Technology</span>&nbsp;with</td>
 						</tr>
 						<tr>
 							<td class="secondary-small pl-40">LOD Based Loading</td>
@@ -297,7 +333,7 @@
 							<td rowspan="6" style="width:40%;padding: 10px 25px 10px 10px;">
 								<img src="assets/icon1.png" />
 							</td>
-							<td style="width: 60%;padding: 30px 0px 0px 40px;" class="primary-fnt">New VR Interactions</td>
+							<td style="width: 60%;padding: 30px 0px 0px 40px; font-size: 20px" class="primary-fnt"><span style="font-weight: bold">New VR Interactions</span></td>
 						</tr>
 						<tr>
 							<td class="secondary-small pl-40">Doll House Mode</td>
