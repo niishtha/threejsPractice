@@ -57,8 +57,8 @@ function init() {
 
 
     //Create a helper for the shadow camera (optional)
-    var helper = new THREE.CameraHelper(light.shadow.camera);
-    scene.add(helper);
+    // var helper = new THREE.CameraHelper(light.shadow.camera);
+    // scene.add(helper);
 
 
 
