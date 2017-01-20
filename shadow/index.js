@@ -1,44 +1,77 @@
 window.onload = init
 
 function init() {
-    let renderer = new THREE.WebGLRenderer({
-        antialias: true
+    //create Renderer
+    var renderer = new THREE.WebGLRenderer();
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    renderer.setSize(window.innerWidth, window.innerWidth)
+    document.body.appendChild(renderer.domElement)
+
+
+    //Create Scene
+    var scene = new THREE.Scene();
+
+
+    var ambientLight = new THREE.AmbientLight(0x00ff00, 0.2)
+    scene.add(ambientLight)
+
+
+    //Create a SpotLight and turn on shadows for the light
+    var light = new THREE.SpotLight(0xffffff);
+    light.position.set(15, 40, 35);
+    light.castShadow = true;
+    light.shadow.mapSize.width = 512;
+    light.shadow.mapSize.height = 512;
+    light.shadow.camera.near = 0.5;
+    light.shadow.camera.far = 500
+    scene.add(light);
+
+
+    lightHelper = new THREE.SpotLightHelper(light);
+    scene.add(lightHelper);
+
+
+
+    //create sphere to cast Shadow
+    var sphereGeometry = new THREE.SphereGeometry(5, 32, 32);
+    var sphereMaterial = new THREE.MeshPhongMaterial({
+        color: 0xff0000
     });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    //renderer.setClearColor(0xffffff, 1);
+    var sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+    sphere.castShadow = true;
+    scene.add(sphere);
 
-    document.body.appendChild(renderer.domElement);
 
-    let scene = new THREE.Scene({
-        fog: true //new THREE.fog(0xa0a0ff,5,50)
-    });
 
-    let camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000)
-    camera.position.set(0, 0, 20)
+    //create plane to recieve shadow
+    var planeGeometry = new THREE.PlaneGeometry(200, 200, 32, 32);
+    var planeMaterial = new THREE.MeshPhongMaterial({
+        color: 0x00ff00
+    })
+    var plane = new THREE.Mesh(planeGeometry, planeMaterial);
+    plane.position.set(0, 0, -10)
+    plane.receiveShadow = true;
+    scene.add(plane);
 
+
+
+    //Create a helper for the shadow camera (optional)
+    var helper = new THREE.CameraHelper(light.shadow.camera);
+    scene.add(helper);
+
+
+
+    var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 2000);
+    camera.position.set(0, 0, 30);
     scene.add(camera);
 
 
-    let ambientLight = new THREE.AmbientLight();
-    scene.add(ambientLight)
-
-    let controls = new THREE.OrbitControls( camera );
-  	controls.addEventListener( 'change', function(){
-  		renderer.render(scene, camera)
-  	} );
-
-    let geometry = new THREE.PlaneGeometry(5, 5),
-        material = new THREE.MeshPhongMaterial({
-            // opacity: 0.5,
-            // overdraw: 0.5,
-            color: 0xff00ff,
-            //emissive: 0x072534,
-			side: THREE.DoubleSide,
-			shading: THREE.FlatShading
-        }),
-        plane = new THREE.Mesh(geometry, material);
-    plane.rotation.x = Math.PI/4
-    scene.add(plane);
+    let controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls.addEventListener('change', function() {
+        lightHelper.update();
+        renderer.render(scene, camera)
+    });
 
     renderer.render(scene, camera)
 }
