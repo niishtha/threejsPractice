@@ -16,19 +16,23 @@
         -webkit-box-sizing: border-box;
         box-sizing: border-box;
         font-family: sans-serif;
-        background-color: #000000;
     }
-    body *{
-    	 text-rendering: optimizeLegibility;
-    	-webkit-font-smoothing: antialiased;
-    	-moz-osx-font-smoothing: grayscale;
+    
+    body * {
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    
+    .body-wrap {
+        background-color: #ffffff;
     }
     
     table {
         border-spacing: 0;
         border-collapse: collapse;
     }
-
+    
     td {
         word-wrap: break-word;
         -webkit-hyphens: auto;
@@ -44,42 +48,40 @@
         vertical-align: top;
         text-align: left;
     }
+    
     a {
         text-decoration: none;
+        cursor: pointer;
     }
-    
-    .wrapper {
+    /*.wrapper {
         max-width: 700px;
         width: 100%;
         margin: 0 auto;
         background-color: #ffffff;
     }
-    
-    .full-width {
+    */
+    /*.full-width {
         width: 100%;
-    }
-    
-    .first-fold {
+    }*/
+    /*.first-fold {
         height: auto;
-        margin-bottom: 55px;
-    }
-    
-    .second-fold {
+        margin-bottom: 35px;
+    }*/
+    /*.second-fold {
         padding: 20px;
         max-width: 500px;
         margin: 0 auto 40px;
-    }
+    }*/
     
     .makaan-icon {
         text-align: right;
     }
-    
-    img {
+    /*img {
         width: 100%;
         height: auto;
-    }
+    }*/
     
-    .button {
+    /*.button {
         border: 1px solid;
         border-color: #e81c28;
         border-radius: 25px;
@@ -87,297 +89,320 @@
         display: inline-block;
         color: #e81c28;
         cursor: pointer;
-    }
-    .button-red{
-    	border-radius: 25px;
-    	padding: 10px 20px;
-    	background-color: #e81c28;
-    	color: #ffffff;
-    	cursor: pointer;
-
-    }
+    }*/
+    
+    /*.button-red {
+        border-radius: 25px;
+        padding: 10px 20px;
+        background-color: #e81c28;
+        color: #ffffff;
+        cursor: pointer;
+    }*/
     
     .btn-wrap {
         text-align: right;
     }
     
-    .primary-fnt {
+    /*.primary-fnt {
         color: #454545;
         font-size: 18px;
-    }
-
-    .primary-big-fnt{
+    }*/
+    
+    /*.primary-big-fnt {
         color: #454545;
         font-size: 20px;
-    }
-
-    .primary-small{
-    	color: #454545;
-    	font-size: 14px;
-    }
+    */}
     
-    .secondary-fnt {
+    /*.primary-small {
+        color: #454545;
+        font-size: 14px;
+    }*/
+    
+    /*.secondary-fnt {
         color: #929292;
         font-size: 16px;
-    }
-    .secondary-small{
-    	color: #929292;
-    	font-size: 14px;
-    }
-
-    .p-10{
-    	padding: 10px;
-    }
-    .pt-10{
-    	padding-top: 10px;
-    }
-    .pt-25{
-    	padding-top: 25px;
-    }
-    .pl-40{
-    	padding-left: 40px;
-    	padding-bottom: 5px;
-    }
-    .pl-20{
-    	padding-left: 20px;
-    }
-    .pl-0{
+    }*/
+    
+    /*.secondary-small {
+        color: #929292;
+        font-size: 14px;
+    }*/
+    
+    /*.p-10 {
+        padding: 10px;
+    }*/
+    
+    /*.pt-10 {
+        padding-top: 10px;
+    }*/
+    
+    /*.pt-25 {
+        padding-top: 25px;
+    }*/
+    
+    /*.pl-40 {
+        padding-left: 40px;
+        padding-bottom: 5px;
+    }*/
+    
+    /*.pl-20 {
+        padding-left: 20px;
+    }*/
+    
+    /*.pl-0 {
         padding-left: 0px;
-    }
-    .pt-0{
+    }*/
+    
+    /*.pt-0 {
         padding-top: 0px;
-    }
-    .ribbon-wrap{
-    	margin: 0 auto 30px;
-    	max-width: 300px;
-    	width: 100%;
-    }
-    .ribbon{
-    	background: url("assets/ribbon.png") top no-repeat;
-    	background-size: contain;
-    	height: 49px;
-    	margin: 0 auto;
-    	padding-top: 15px;
-    	text-align: center;
-    	color: #ffffff;
-    	font-size: 16px;
-    }
-    .text-center{
-    	text-align: center;
-    }
-    .text-left{
-    	text-align: left;
-    }
-    .text-right{
-    	text-align: right;
-    }
-    .v-middle{
-    	vertical-align: middle;
-    }
-    .footer{
-    	width: 100%;
-    	background-color: #efefef;
-    	min-height: 160px;
-    }
+    }*/
+    
+    /*.pb-5 {
+        padding-bottom: 5px;
+    }*/
+    
+    /*.ribbon-wrap {
+        margin: 0 auto 30px;
+        max-width: 300px;
+        width: 100%;
+    }*/
+    
+    /*.ribbon {
+        background: url("https://s3-ap-southeast-1.amazonaws.com/3dphymedia/prod/othermedia/digitour2_0_mailer/ribbonshape.png") top no-repeat;
+        background-size: contain;
+        height: 40px;
+        margin: 0 auto;
+        padding-top: 15px;
+        text-align: center;
+        color: #ffffff;
+        font-size: 16px;
+    }*/
+    
+    /*.text-center {
+        text-align: center;
+    }*/
+    
+    /*.text-left {
+        text-align: left;
+    }*/
+    
+    /*.text-right {
+        text-align: right;
+    }*/
+    
+    /*.v-middle {
+        vertical-align: middle;
+    }*/
+    
+    /*.footer {
+        width: 100%;
+        background-color: #efefef;
+        min-height: 160px;
+    }*/
+    
     @media only screen and (max-width: 767px) {
-    	.hide-desktop{
-    		display: none!important;
-    	}
+        .hide-desktop {
+            display: none!important;
+        }
     }
+    
     @media only screen and (min-width: 768px) {
-    	.hide-mobile{
-    		display: none!important;
-    	}
+        .hide-mobile {
+            display: none!important;
+        }
     }
     </style>
 </head>
 
-<body>
-    <table class="wrapper">
+<body class='body-wrap'>
+    <table class="wrapper" style="max-width: 700px;width: 100%;margin: 0 auto;background-color: #ffffff;">
         <tbody>
             <tr>
                 <td>
-                    <table class="first-fold full-width hide-desktop">
+                    <table class="first-fold full-width hide-desktop" style="width: 100%; height: auto;margin-bottom: 35px;">
                         <tbody>
                             <tr>
                                 <td>
-                                    <a href="http://www.google.com" target="_blank"><img src="assets/heroimage_text.jpg" /></a>
+                                    <a href="http://www.google.com" target="_blank"><img style="width: 100%; height: auto;" src="https://s3-ap-southeast-1.amazonaws.com/3dphymedia/prod/othermedia/digitour2_0_mailer/heroimagetext.jpg" /></a>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-                    <table class="first-fold full-width hide-mobile">
+                    <table class="first-fold full-width hide-mobile" style="width: 100%;margin-bottom: 35px;">
                         <tbody>
                             <tr>
                                 <td>
-                                    <img src="assets/hero_image.jpg" />
+                                    <img style="width: 100%; height: auto;" src="https://s3-ap-southeast-1.amazonaws.com/3dphymedia/prod/othermedia/digitour2_0_mailer/heroimage.jpg" />
                                 </td>
                             </tr>
                             <tr>
-                            	<td style="padding: 10px 20px;font-size: 20px;">ALL NEW</td>
+                                <td style="padding: 5px 20px 0px;font-size: 20px;">ALL NEW</td>
                             </tr>
                             <tr>
-                            	<td style="padding: 10px 20px;font-size: 24px;font-weight: bold;">FUTURE-SPACE</td>
+                                <td style="padding: 0px 20px;font-size: 40px;font-weight: bold;">DigiTour</td>
                             </tr>
                             <tr>
-								<td class="pt-25 pl-20">
-									<a href="http://www.google.com" target="_blank"><span class="button-red">TAKE A DEMO</span></a>
-								</td>
-							</tr>
-                        </tbody>
-                    </table>
-                    <table class="second-fold full-width">
-                        <tbody>
-                            <tr>
-                                <td colspan="2">
-                                    <img src="assets/image2.jpg" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="width:70%" class="p-10 pl-0">
-                                    <span class="primary-big-fnt">Navigation never got easier</span>
-                                </td>
-                                <td style="width: 30%" rowspan="2" class="text-right p-10">
-                                    <a href="http://www.google.com" target="_blank"><span class="button">know more</span></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="secondary-fnt pl-0 p-10 pt-0">Easily move within different sections</span>
+                                <td class="pt-25 pl-20" style="padding-top: 25px;padding-left: 20px;">
+                                    <a href="https://s3-ap-southeast-1.amazonaws.com/3dphymedia/prod/othermedia/digitour2_0_mailer/heroimage.jpg" target="_blank"><span class="button-red" style="padding: 9px 20px; border-radius: 25px;background-color: #e81c28;color: #ffffff;cursor: pointer;">TAKE A DEMO</span></a>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-                    <table class="second-fold full-width">
+                    <table class="second-fold full-width" style="width: 100%;padding: 20px;max-width: 500px;margin: 0 auto 40px;">
                         <tbody>
                             <tr>
                                 <td colspan="2">
-                                    <img src="assets/image2.jpg" />
+                                    <img style="width: 100%; height: auto;" src="https://s3-ap-southeast-1.amazonaws.com/3dphymedia/prod/othermedia/digitour2_0_mailer/landing.gif" />
                                 </td>
                             </tr>
                             <tr>
-                                <td style="width:70%" class="p-10 pl-0">
-                                    <span class="primary-big-fnt">Navigation never got easier</span>
+                                <td style="width:70%;color: #454545;font-size: 20px; padding: 10px; padding-left: 0px; padding-bottom: 5px;" class="p-10 pl-0 pb-5">
+                                    <span class="primary-big-fnt" style="color: #454545;font-size: 20px;">Land into your home with style</span>
                                 </td>
-                                <td style="width: 30%" rowspan="2" class="text-right p-10">
-                                    <a href="http://www.google.com" target="_blank"><span class="button">know more</span></a>
+                                <td style="width: 30%;padding: 10px; text-align: right;" rowspan="2" class="text-right p-10">
+                                    <a href="http://www.google.com" target="_blank"><span class="button" style="border: 1px solid; border-color: #e81c28; border-radius: 25px; padding: 5px 15px; display: inline-block; color: #e81c28; cursor: pointer;">know more</span></a>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <span class="secondary-fnt pl-0 p-10 pt-0">Easily move within different sections</span>
+                                    <span style="color:#929292;font-size: 16px; padding: 0px 10px 10px 0px ;" class="secondary-fnt pl-0 p-10 pt-0">Brand new landing experience</span>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-                    <table class="second-fold full-width">
+                    <table class="second-fold full-width" style="width: 100%;padding: 20px;max-width: 500px;margin: 0 auto 40px;">
                         <tbody>
                             <tr>
                                 <td colspan="2">
-                                    <img src="assets/image2.jpg" />
+                                    <img style="width: 100%; height: auto;" src="https://s3-ap-southeast-1.amazonaws.com/3dphymedia/prod/othermedia/digitour2_0_mailer/nav.jpg" />
                                 </td>
                             </tr>
                             <tr>
-                                <td style="width:70%" class="p-10 pl-0">
-                                    <span class="primary-big-fnt">Navigation never got easier</span>
+                                <td style="width:70%; padding: 10px; padding-left: 0px; padding-bottom: 5px;" class="p-10 pl-0 pb-5">
+                                    <span class="primary-big-fnt" style="color: #454545;font-size: 20px;">Navigation never got easier</span>
                                 </td>
-                                <td style="width: 30%" rowspan="2" class="text-right p-10">
-                                    <a href="http://www.google.com" target="_blank"><span class="button">know more</span></a>
+                                <td style="width: 30%;padding: 10px; text-align: right;" rowspan="2" class="text-right p-10">
+                                    <a href="http://www.google.com" target="_blank"><span class="button" style="border: 1px solid; border-color: #e81c28; border-radius: 25px; padding: 5px 15px; display: inline-block; color: #e81c28; cursor: pointer;">know more</span></a>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <span class="secondary-fnt pl-0 p-10 pt-0">Easily move within different sections</span>
+                                    <span style="color:#929292;font-size: 16px;padding: 10px; padding-left: 0px;  padding-top: 0px;" class="secondary-fnt pl-0 p-10 pt-0">Easily move between different rooms</span>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-					<table class="ribbon-wrap">
-					    <tr>
-					        <td class="text-center primary-small">THE JOY DOESN'T STOP HERE</td>
-					    </tr>
-					    <tr>
-					        <td class="ribbon">IT ONLY GETS BETTER</td>
-					    </tr>
-					</table>
-					<table class="second-fold">
-						<tr>
-							<td rowspan="6" style="width:40%;padding: 10px 25px 10px 10px;">
-								<img src="assets/icon1.png" />
-							</td>
-							<td style="width: 60%;padding: 30px 0px 0px 40px; font-size: 20px" class="primary-fnt"><span style="font-weight: bold">Better user interaction</span>&nbsp;with</td>
-						</tr>
-						<tr>
-							<td class="secondary-small pl-40">Coach marks</td>
-						</tr>
-						<tr>
-							<td class="secondary-small pl-40">Auto-Tour</td>
-						</tr>
-						<tr>
-							<td class="secondary-small pl-40">Annotations</td>
-						</tr>
-						<tr rowspan="2">
-							<td class="text-left pt-10 pl-40">
-								<a href="http://www.google.com" target="_blank"><span class="button">Explore now</span></a>
-							</td>
-						</tr>
-					</table>
-					<table class="second-fold">
-						<tr>
-							<td rowspan="6" style="width:40%;padding: 10px 25px 10px 10px;">
-								<img src="assets/icon1.png" />
-							</td>
-							<td style="width: 60%;padding: 30px 0px 0px 40px; font-size: 20px" class="primary-fnt"><span style="font-weight: bold">Better Technology</span>&nbsp;with</td>
-						</tr>
-						<tr>
-							<td class="secondary-small pl-40">LOD Based Loading</td>
-						</tr>
-						<tr>
-							<td class="secondary-small pl-40">Reduced size from 25mb to 4mb</td>
-						</tr>
-						<tr>
-							<td class="secondary-small pl-40">Better Hardware Support</td>
-						</tr>
-						<tr rowspan="2">
-							<td class="text-left pt-10 pl-40">
-								<a href="http://www.google.com" target="_blank"><span class="button">Explore now</span></a>
-							</td>
-						</tr>
-					</table>
-					<table class="second-fold">
-						<tr>
-							<td rowspan="6" style="width:40%;padding: 10px 25px 10px 10px;">
-								<img src="assets/icon1.png" />
-							</td>
-							<td style="width: 60%;padding: 30px 0px 0px 40px; font-size: 20px" class="primary-fnt"><span style="font-weight: bold">New VR Interactions</span></td>
-						</tr>
-						<tr>
-							<td class="secondary-small pl-40">Doll House Mode</td>
-						</tr>
-						<tr>
-							<td class="secondary-small pl-40">Object Interactions</td>
-						</tr>
-						<tr>
-							<td class="secondary-small pl-40">External device free</td>
-						</tr>
-						<tr rowspan="2">
-							<td class="text-left pt-10 pl-40">
-								<a href="http://www.google.com" target="_blank"><span class="button">Explore now</span></a>
-							</td>
-						</tr>
-					</table>
-					<table class="footer">
-						<tr>
-							<td class="text-center v-middle pt-25">
-								Experience home-search like never before
-							</td>
-						</tr>
-						<tr>
-							<td class="text-center">
-								<a href="http://www.google.com" target="_blank"><span class="button-red">TAKE A DEMO</span></a>
-							</td>
-						</tr>
-					</table>
+                    <table class="second-fold full-width" style="width: 100%;padding: 20px;max-width: 500px;margin: 0 auto 40px;">
+                        <tbody>
+                            <tr>
+                                <td colspan="2">
+                                    <img style="width: 100%; height: auto;" src="https://s3-ap-southeast-1.amazonaws.com/3dphymedia/prod/othermedia/digitour2_0_mailer/compare.gif" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:70%;padding: 10px; padding-left: 0px; padding-bottom: 5px;" class="p-10 pl-0 pb-5">
+                                    <span class="primary-big-fnt" style="color: #454545;font-size: 20px;">Let's get closer to reality</span>
+                                </td>
+                                <td style="width: 30%;padding: 10px; text-align: right;" rowspan="2" class="text-right p-10">
+                                    <a href="http://www.google.com" target="_blank"><span class="button" style="border: 1px solid; border-color: #e81c28; border-radius: 25px; padding: 5px 15px; display: inline-block; color: #e81c28; cursor: pointer;">know more</span></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span style="color:#929292;font-size: 16px;padding: 10px; padding-left: 0px;  padding-top: 0px;" class="secondary-fnt pl-0 p-10 pt-0">Photo-realistic visuals</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="ribbon-wrap" style="margin: 0 auto 30px;max-width: 300px;width: 100%;">
+                        <tr>
+                            <td class="text-center primary-small" style="color: #454545;font-size: 14px;text-align: center;">THE JOY DOESN'T STOP HERE</td>
+                        </tr>
+                        <tr>
+                            <td class="ribbon" style="background: url('https://s3-ap-southeast-1.amazonaws.com/3dphymedia/prod/othermedia/digitour2_0_mailer/ribbonshape.png') top no-repeat;background-size: contain;height: 40px;margin: 0 auto;padding-top: 15px;text-align: center;color: #ffffff;font-size: 16px;">IT ONLY GETS BETTER</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center primary-small" style="color: #454545;font-size: 14px; text-align: center;"><a href="http://www.google.com" target="_blank"><span style="background: #444444; color:#ffffff; display: inline-block;padding: 2px 10px;border-radius: 8px;">Compare with previous version</span></a></td>
+                        </tr>
+                    </table>
+                    <table class="second-fold" style="padding: 20px;max-width: 500px; margin:0 auto 40px">
+                        <tr>
+                            <td rowspan="6" style="width:40%;padding: 10px 25px 10px 10px;">
+                                <img style="width: 100%; height: auto;" src="https://s3-ap-southeast-1.amazonaws.com/3dphymedia/prod/othermedia/digitour2_0_mailer/icon1.png" />
+                            </td>
+                            <td style="width: 60%;padding: 30px 0px 0px 40px; font-size: 20px; color: #454545;font-size: 18px;" class="primary-fnt"><span style="font-weight: bold">Better user interaction</span>&nbsp;with</td>
+                        </tr>
+                        <tr>
+                            <td class="secondary-small pl-40" style="color:#929292; font-size:14px; padding-left: 40px; padding-bottom: 5px;">Coach marks</td>
+                        </tr>
+                        <tr>
+                            <td class="secondary-small pl-40" style="color:#929292; font-size:14px; padding-left: 40px; padding-bottom: 5px;">Auto-Tour</td>
+                        </tr>
+                        <tr>
+                            <td class="secondary-small pl-40" style="color:#929292; font-size:14px; padding-left: 40px; padding-bottom: 5px;">Annotations</td>
+                        </tr>
+                        <tr rowspan="2">
+                            <td class="text-left pt-10 pl-40" style="padding-top: 10px; padding-left: 40px;padding-bottom: 5px; text-align: left;">
+                                <a href="http://www.google.com" target="_blank"><span class="button" style="border: 1px solid; border-color: #e81c28; border-radius: 25px; padding: 5px 15px; display: inline-block; color: #e81c28; cursor: pointer;">Explore now</span></a>
+                            </td>
+                        </tr>
+                    </table>
+                    <table class="second-fold" style="max-width: 500px;max-width: 500px; margin:0 auto 40px">
+                        <tr>
+                            <td rowspan="6" style="width:40%;padding: 10px 25px 10px 10px;">
+                                <img style="width: 100%; height: auto;" src="https://s3-ap-southeast-1.amazonaws.com/3dphymedia/prod/othermedia/digitour2_0_mailer/icon2.png" />
+                            </td>
+                            <td style="width: 60%;padding: 30px 0px 0px 40px; font-size: 20px;color: #454545;font-size: 18px;" class="primary-fnt"><span style="font-weight: bold">Better Technology</span>&nbsp;with</td>
+                        </tr>
+                        <tr>
+                            <td class="secondary-small pl-40" style="color:#929292; font-size:14px; padding-left: 40px; padding-bottom: 5px;">LOD Based Loading</td>
+                        </tr>
+                        <tr>
+                            <td class="secondary-small pl-40" style="color:#929292; font-size:14px; padding-left: 40px; padding-bottom: 5px;">Reduced size from 25mb to 4mb</td>
+                        </tr>
+                        <tr>
+                            <td class="secondary-small pl-40" style="color:#929292; font-size:14px; padding-left: 40px; padding-bottom: 5px;">Better Hardware Support</td>
+                        </tr>
+                        <tr rowspan="2">
+                            <td class="text-left pt-10 pl-40" style="padding-top: 10px; padding-left: 40px;padding-bottom: 5px; text-align: left;">
+                                <a href="http://www.google.com" target="_blank"><span class="button" style="border: 1px solid; border-color: #e81c28; border-radius: 25px; padding: 5px 15px; display: inline-block; color: #e81c28; cursor: pointer;">Explore now</span></a>
+                            </td>
+                        </tr>
+                    </table>
+                    <table class="second-fold" style="margin: 0 auto 40px;max-width: 500px; margin:0 auto 40px">
+                        <tr>
+                            <td rowspan="6" style="width:40%;padding: 10px 25px 10px 10px;">
+                                <img style="width: 100%; height: auto;" src="https://s3-ap-southeast-1.amazonaws.com/3dphymedia/prod/othermedia/digitour2_0_mailer/icon3.png" />
+                            </td>
+                            <td style="width: 60%;padding: 30px 0px 0px 40px; font-size: 20px;color: #454545;font-size: 18px;" class="primary-fnt"><span style="font-weight: bold"><img src="https://s3-ap-southeast-1.amazonaws.com/3dphymedia/prod/othermedia/digitour2_0_mailer/newribbon.png" style="height: 15px;width: auto;padding-right: 5px;"/>VR Interactions</span></td>
+                        </tr>
+                        <tr>
+                            <td class="secondary-small pl-40" style="color:#929292; font-size:14px; padding-left: 40px; padding-bottom: 5px;">Better Head Tracking</td>
+                        </tr>
+                        <tr>
+                            <td class="secondary-small pl-40" style="color:#929292; font-size:14px; padding-left: 40px; padding-bottom: 5px;">No External device</td>
+                        </tr>
+                        <tr>
+                            <td class="secondary-small pl-40" style="color:#929292; font-size:14px; padding-left: 40px; padding-bottom: 5px;">Object interactions</td>
+                        </tr>
+                        <tr rowspan="2">
+                            <td class="text-left pt-10 pl-40" style="padding-top: 10px; padding-left: 40px; padding-bottom: 5px; text-align: left;">
+                                <a href="http://www.google.com" target="_blank"><span class="button" style="border: 1px solid; border-color: #e81c28; border-radius: 25px; padding: 5px 15px; display: inline-block; color: #e81c28; cursor: pointer;">Explore now</span></a>
+                            </td>
+                        </tr>
+                    </table>
+                    <table class="footer" style="width: 100%;background-color: #efefef;min-height: 160px;">
+                        <tr>
+                            <td class="text-center v-middle pt-25" style="padding-top: 25px; text-align: center; vertical-align: middle;">
+                                Experience home-search like never before
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center" style="text-align: center;">
+                                <a href="http://www.google.com" target="_blank"><span class="button-red">TAKE A DEMO</span></a>
+                            </td>
+                        </tr>
+                    </table>
                 </td>
             </tr>
         </tbody>
